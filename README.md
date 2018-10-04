@@ -1,27 +1,13 @@
 # AngularTutorialUseDecoratorAndNgrx
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.2.4.
+a example shows how to use decorator and ngrx to simplify and clearify your angular project.
 
-## Development server
+includes:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+1. use decorator added to action to show and hide spinner;
 
-## Code scaffolding
+2. use decorator added to action to show and hide success and error tip;
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+3. use decorator added to action to show a confirm window when needed;
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+4. above all decorators can be piled to use.
