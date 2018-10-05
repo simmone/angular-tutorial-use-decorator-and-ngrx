@@ -7,7 +7,6 @@ import { ComponentsModule } from './components';
 
 import { ModalsPageComponent } from './containers/modals-page.component';
 import { ConfirmPageComponent } from './containers/confirm-page.component';
-import { AppComponent } from './containers/app/app.component';
 
 import { TipEffects } from './effects/tip.effects';
 import { ConfirmEffects } from './effects/confirm.effects';
@@ -19,7 +18,6 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 
 export const COMPONENTS = [
-  AppComponent,
   ModalsPageComponent,
   ConfirmPageComponent
 ];

@@ -1,17 +1,13 @@
 import { Component, ViewChild, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { MatDialog } from '@angular/material';
 
 @Component({
   selector: 'app-modal',
   templateUrl: './modals.component.html',
   styleUrls: ['./modals.component.scss']
 })
-
 export class ModalsComponent implements OnInit {
-  @ViewChild('successTipModal') public successTipModal: any;
-  @ViewChild('errorTipModal') public errorTipModal: any;
-  @ViewChild('spinnerModal') public spinnerModal: any;
-  
-  constructor() {};
+  constructor(public dialog: MatDialog) {}
 
   ngOnInit(): void {};
 
@@ -21,14 +17,16 @@ export class ModalsComponent implements OnInit {
 
   @Input()
   set showErrorTip(isShow: boolean) {
+    let dialogRef = null;
+
     if ( isShow ) {
-      this.errorTipModal.show();
+      dialogRef = this.dialog.open(ErrorTipModal);
 
       setTimeout( () => {
         this.hideErrorTipSubmitted.emit();
       }, 2000);
     } else {
-      this.errorTipModal.hide();
+      dialogRef.close();
     }
   }
 
@@ -38,23 +36,47 @@ export class ModalsComponent implements OnInit {
 
   @Input()
   set showSuccessTip(isShow: boolean) {
+    let dialogRef = null;
+
     if ( isShow ) {
-      this.successTipModal.show();
+      dialogRef = this.dialog.open(SuccessTipModal);
 
       setTimeout( () => {
         this.hideSuccessTipSubmitted.emit();
       }, 2000);
     } else {
-      this.successTipModal.hide();
+      dialogRef.close();
     }
   }
 
   @Input()
   set isLoading(isShow: boolean) {
+    let dialogRef = null;
+
     if ( isShow ) {
-      this.spinnerModal.show();
+      dialogRef = this.dialog.open(SpinnerModal);
     } else {
-      this.spinnerModal.hide();
+      dialogRef.close();
     }
   }
 }
+
+@Component({
+  selector: 'spinner-modal',
+  templateUrl: 'spinner-modal.component.html',
+})
+export class SpinnerModal {}
+
+@Component({
+  selector: 'successTip-modal',
+  templateUrl: 'successTip-modal.component.html',
+})
+export class SuccessTipModal {}
+
+@Component({
+  selector: 'errorTip-modal',
+  templateUrl: 'errorTip-modal.component.html',
+})
+export class ErrorTipModal {}
+
+

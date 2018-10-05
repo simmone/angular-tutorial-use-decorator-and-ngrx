@@ -7,7 +7,7 @@ import {
   RouterStateSerializer,
 } from '@ngrx/router-store';
 
-import { MatButtonModule, MatCheckboxModule } from '@angular/material';
+import { MatButtonModule } from '@angular/material';
 
 import { MainComponent } from './main/main.component';
 
@@ -23,7 +23,7 @@ import { routes } from './routes';
 
 import { environment } from '../environments/environment';
 
-//import { CoreModule } from './core/core.module';
+import { CoreModule } from './core/core.module';
 
 @NgModule({
   declarations: [
@@ -42,9 +42,8 @@ import { environment } from '../environments/environment';
       logOnly: environment.production,
     }),
     MatButtonModule, 
-    MatCheckboxModule,
     EffectsModule.forRoot([]),
-//    CoreModule.forRoot()
+    CoreModule.forRoot()
   ],
   providers: [
     { provide: RouterStateSerializer, useClass: CustomRouterStateSerializer }
