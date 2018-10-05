@@ -1,0 +1,40 @@
+<div mdbModal 
+  #spinnerModal="mdb-modal" class="modal" id="spinner" tabindex="-1" role="dialog" 
+  aria-labelledby="myModalLabel" aria-hidden="true" 
+  [config]="{backdrop: true, ignoreBackdropClick: true}">
+
+  <div class="modal-dialog" role="document">
+    <div class="modal-body modal-fluid text-center">
+      <i class="fas fa-cog fa-5x fa-spin text-center" color="white"></i>
+    </div>
+  </div>
+  
+</div>
+
+<div mdbModal 
+  #errorTipModal="mdb-modal" class="modal fade bottom" id="error" tabindex="-1" role="dialog" 
+  aria-labelledby="myModalLabel" aria-hidden="true"
+  [config]="{backdrop: true, ignoreBackdropClick: true}">
+  
+  <div class="modal-dialog modal-frame modal-bottom" role="document">
+    <div class="modal-content">
+      <span class="badge red pt-2"><h5>{{errorMsg}}</h5></span>
+    </div>
+  </div>
+  
+</div>
+
+<div mdbModal 
+  #successTipModal="mdb-modal" class="modal fade bottom" id="success" tabindex="-1" role="dialog" 
+  aria-labelledby="myModalLabel" aria-hidden="true"
+  [config]="{backdrop: true, ignoreBackdropClick: true}">
+  
+  <div class="modal-dialog modal-frame modal-bottom" role="document">
+    <div class="modal-content">
+      <span class="badge green pt-3"><h5>{{successMsg}}</h5></span>
+    </div>
+  </div>
+  
+</div>
+
+

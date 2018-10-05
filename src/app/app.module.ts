@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 
-import { AppComponent } from './app.component';
+import { AppComponent } from './core/containers/app/app.component';
 
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
@@ -20,6 +20,8 @@ import { routes } from './routes';
 
 import { environment } from '../environments/environment';
 
+import { CoreModule } from './core/core.module';
+
 @NgModule({
   declarations: [
     AppComponent
@@ -36,6 +38,7 @@ import { environment } from '../environments/environment';
       logOnly: environment.production,
     }),
     EffectsModule.forRoot([]),
+    CoreModule.forRoot()
   ],
   providers: [
     { provide: RouterStateSerializer, useClass: CustomRouterStateSerializer }

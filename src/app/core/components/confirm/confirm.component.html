@@ -1,0 +1,24 @@
+<div mdbModal 
+     #confirmModal="mdbModal" 
+     class="modal fade top" id="frameModalTop" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"  aria-hidden="true"
+     [config]="{backdrop: true, ignoreBackdropClick: true}"
+     (onHide)="close()"
+     >
+
+  <div class="modal-dialog modal-sm modal-notify modal-danger" role="document">
+    <div class="modal-content text-center">
+      <div class="modal-header d-flex justify-content-center">
+        <p class="heading">{{confirmQuestion}}</p>
+      </div>
+
+      <div class="modal-body">
+        <i class="fas fa-times fa-4x animated rotateIn" color="red"></i>
+      </div>
+
+      <div class="modal-footer flex-center">
+        <button type="button" mdbBtn color="danger" outline="true" class="waves-effect" mdbWavesEffect data-dismiss="modal" (click)="submit()">是</button>
+        <button type="button" mdbBtn color="danger" class="waves-effect" mdbWavesEffect data-dismiss="modal" (click)="confirmModal.hide()">否</button>
+      </div>
+    </div>
+  </div>
+</div>
