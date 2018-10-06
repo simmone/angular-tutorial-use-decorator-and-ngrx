@@ -10,13 +10,13 @@ export const initialState: State = {
 
 export function reducer(state = initialState, action: any): State {
   switch (action.type) {
-    case ExampleActionTypes.TaskSuccess: {
+    case ExampleActionTypes.NormalTaskSuccess: {
       return {
         ...state,
         result: true
       };
     }
-    case ExampleActionTypes.TaskFailure: {
+    case ExampleActionTypes.NormalTaskFailure: {
       return {
         ...state,
         result: false

@@ -1,16 +1,16 @@
 import { Injectable } from '@angular/core';
 import { Actions, Effect, ofType } from '@ngrx/effects';
 import { Store, select } from '@ngrx/store';
-import { of, pipe } from 'rxjs';
+import { of, pipe, timer } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 
 import * as fromExample from '../reducers';
 
 import {
   ExampleActionTypes,
-  Task,
-  TaskSuccess,
-  TaskFailure,
+  NormalTask,
+  NormalTaskSuccess,
+  NormalTaskFailure,
 } from '../actions/example.actions';
 
 @Injectable()
@@ -18,9 +18,10 @@ export class ExampleEffects {
 
   @Effect()
   task$ = this.actions$.pipe(
-    ofType<Task>(ExampleActionTypes.Task),
-    map( () => new TaskSuccess() ),
-    catchError(error => of(new TaskFailure()))
+    ofType<NormalTask>(ExampleActionTypes.NormalTask),
+    map( () => timer(2000) ),
+    map( () => new NormalTaskSuccess() ),
+    catchError(error => of(new NormalTaskFailure(error.message)))
   );
 
   constructor(

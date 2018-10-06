@@ -2,10 +2,10 @@
 
 <div class="button-row">
 
-  <button mat-raised-button color="primary">Success Task</button>
+  <button mat-raised-button color="primary" (click)="onClickNormal()">Normal Task</button>
 
-  <button mat-raised-button color="accent">Failure Task</button>
+  <button mat-raised-button color="accent" (click)="onClickError()">Error Task</button>
 
-  <button mat-raised-button color="warn">Need Confirm Task</button>
+  <button mat-raised-button color="warn" (click)="onClickConfirm()">Need Confirm Task</button>
 
 </div>
