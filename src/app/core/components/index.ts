@@ -4,12 +4,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatButtonModule, MatDialogModule } from '@angular/material';
 
-import { ModalsComponent } from './modals/modals.component';
-import { ConfirmComponent } from './confirm/confirm.component';
+import { SuccessTipModal } from './successTip/success-tip.component';
+import { ErrorTipModal } from './errorTip/error-tip.component';
+import { SpinnerModal } from './spinner/spinner.component';
+import { ConfirmModal } from './confirm/confirm.component';
 
 export const COMPONENTS = [
-  ModalsComponent,
-  ConfirmComponent
+  SuccessTipModal,
+  ErrorTipModal,
+  SpinnerModal,
+  ConfirmModal
 ];
 
 @NgModule({

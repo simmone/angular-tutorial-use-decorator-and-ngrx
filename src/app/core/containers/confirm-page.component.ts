@@ -22,7 +22,6 @@ import * as fromTip from '../reducers';
   `,
   styles: []
 })
-
 export class ConfirmPageComponent implements OnInit {
   confirmQuestion$ = this.store.pipe(select(fromTip.getConfirmQuestion));
   showConfirm$ = this.store.pipe(select(fromTip.getShowConfirm));

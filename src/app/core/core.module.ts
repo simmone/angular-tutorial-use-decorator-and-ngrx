@@ -5,7 +5,9 @@ import { CommonModule } from '@angular/common';
 
 import { ComponentsModule } from './components';
 
-import { ModalsPageComponent } from './containers/modals-page.component';
+import { SuccessTipPageComponent } from './containers/success-tip-page.component';
+import { ErrorTipPageComponent } from './containers/error-tip-page.component';
+import { SpinnerPageComponent } from './containers/spinner-page.component';
 import { ConfirmPageComponent } from './containers/confirm-page.component';
 
 import { TipEffects } from './effects/tip.effects';
@@ -18,7 +20,9 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 
 export const COMPONENTS = [
-  ModalsPageComponent,
+  SuccessTipPageComponent,
+  ErrorTipPageComponent,
+  SpinnerPageComponent,
   ConfirmPageComponent
 ];
 

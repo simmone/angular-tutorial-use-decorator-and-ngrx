@@ -8,7 +8,7 @@ import { Action } from '@ngrx/store';
   templateUrl: './confirm.component.html',
   styleUrls: ['./confirm.component.scss']
 })
-export class ConfirmComponent implements OnInit {
+export class ConfirmModal implements OnInit {
   constructor(
     public dialog: MatDialog
   ) {}
@@ -42,9 +42,3 @@ export class ConfirmComponent implements OnInit {
     this.closeSubmitted.emit()
   }
 }
-
-@Component({
-  selector: 'confirm-modal',
-  templateUrl: 'confirm-modal.component.html',
-})
-export class ConfirmModal {}

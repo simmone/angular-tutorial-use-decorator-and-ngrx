@@ -6,30 +6,20 @@ import * as TipActions from '../actions/tip.actions';
 import * as fromCore from '../reducers';
 
 @Component({
-  selector: 'app-tip-page',
+  selector: 'app-error-tip-page',
   template: `
-    <app-tip-modal
-      [isLoading] = "isLoading$ | async"
-      [showSuccessTip] = "showSuccessTip$ | async"
-      [successMsg] = "successMsg$ | async"
-      (hideSuccessTipSubmitted)="hideSuccessTip()"
+    <app-error-tip-modal
       [showErrorTip] = "showErrorTip$ | async"
       [errorMsg] = "errorMsg$ | async"
       (hideErrorTipSubmitted)="hideErrorTip()"
     >
-    </app-tip-modal>
+    </app-error-tip-modal>
   `,
   styles: []
 })
-
-export class ModalsPageComponent implements OnInit {
-  isLoading$ = this.store.pipe(select(fromCore.isLoadingSpinnerActive));
-
+export class ErrorTipPageComponent implements OnInit {
   showErrorTip$ = this.store.pipe(select(fromCore.showErrorTip));
   errorMsg$ = this.store.pipe(select(fromCore.errorMsg));
-
-  showSuccessTip$ = this.store.pipe(select(fromCore.showSuccessTip));
-  successMsg$ = this.store.pipe(select(fromCore.successMsg));
 
   constructor(private store: Store<fromCore.State>) {};
 
@@ -37,9 +27,5 @@ export class ModalsPageComponent implements OnInit {
 
   hideErrorTip() {
     this.store.dispatch(new TipActions.HideErrorTip());
-  }
-
-  hideSuccessTip() {
-    this.store.dispatch(new TipActions.HideSuccessTip());
   }
 }
