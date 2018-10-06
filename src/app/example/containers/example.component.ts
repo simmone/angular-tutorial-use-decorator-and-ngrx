@@ -7,8 +7,11 @@ import * as fromExample from '../reducers';
 import * as ExampleActions from '../actions/example.actions';
 
 @Component({
-  selector: 'app-example',
-  template: '',
+  selector: 'app-example-container',
+  template: `
+    <app-p1>
+    </app-p1>
+  `,
   styles: []
 })
 

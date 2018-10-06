@@ -17,12 +17,19 @@ export interface State extends fromRoot.State {
 };
 
 export const reducers: ActionReducerMap<ExampleState> = {
-  es: fromComic.reducer
+  es: fromExample.reducer
 };
 
 export const getExampleState = createFeatureSelector<ExampleState>('example');
 
-export const getComicState = createSelector(
+export const getEsState = createSelector(
   getExampleState,
   (state: ExampleState) => state.es
 );
+
+export const getResult = createSelector(
+  getEsState,
+  fromExample.getResult
+);
+
+

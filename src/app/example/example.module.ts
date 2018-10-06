@@ -5,15 +5,15 @@ import { RouterModule } from '@angular/router';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 
+import { MatButtonModule } from '@angular/material';
+
 import { ExampleComponent } from './containers/example.component';
 
 import { ComponentsModule } from './components';
 
 import { reducers } from './reducers';
 
-import { ExampleEffects } from './effects/view.effects';
-
-import { ExampleService } from './services/view.service';
+import { ExampleEffects } from './effects/example.effects';
 
 export const COMPONENTS = [
   ExampleComponent
@@ -22,16 +22,17 @@ export const COMPONENTS = [
 @NgModule({
   imports: [
     CommonModule, 
+    MatButtonModule,
     ComponentsModule,
     RouterModule.forChild([
-      { path: 'example', component: ExampleComponent },
+      { path: '', component: ExampleComponent },
     ]),
     StoreModule.forFeature('example', reducers),
     EffectsModule.forFeature([ExampleEffects]),
   ],
   declarations: COMPONENTS,
   exports: COMPONENTS,
-  providers: [ExampleService]
+  providers: []
 })
 export class ExampleModule {
   static forRoot() {
