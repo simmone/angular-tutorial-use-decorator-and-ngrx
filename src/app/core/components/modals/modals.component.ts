@@ -1,32 +1,36 @@
 import { Component, ViewChild, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { MatDialog } from '@angular/material';
+import { MatDialog, MatDialogRef } from '@angular/material';
 
 @Component({
-  selector: 'app-modal',
+  selector: 'app-tip-modal',
   templateUrl: './modals.component.html',
   styleUrls: ['./modals.component.scss']
 })
 export class ModalsComponent implements OnInit {
-  constructor(public dialog: MatDialog) {}
+  constructor(
+    public dialog: MatDialog,
+  ) {}
 
   ngOnInit(): void {};
 
   @Input() errorMsg: string;
 
   @Output() hideErrorTipSubmitted = new EventEmitter();
+  
+  public errorTipModalRef = null;
 
   @Input()
   set showErrorTip(isShow: boolean) {
-    let dialogRef = null;
-
     if ( isShow ) {
-      dialogRef = this.dialog.open(ErrorTipModal);
+      this.errorTipModalRef = this.dialog.open(ErrorTipModal);
 
       setTimeout( () => {
         this.hideErrorTipSubmitted.emit();
       }, 2000);
     } else {
-      dialogRef.close();
+      if ( this.errorTipModalRef ) {
+        this.errorTipModalRef.close();
+      }
     }
   }
 
@@ -34,29 +38,33 @@ export class ModalsComponent implements OnInit {
 
   @Output() hideSuccessTipSubmitted = new EventEmitter();
 
+  public successTipModalRef = null;
+
   @Input()
   set showSuccessTip(isShow: boolean) {
-    let dialogRef = null;
-
     if ( isShow ) {
-      dialogRef = this.dialog.open(SuccessTipModal);
+      this.successTipModalRef = this.dialog.open(SuccessTipModal);
 
       setTimeout( () => {
         this.hideSuccessTipSubmitted.emit();
       }, 2000);
     } else {
-      dialogRef.close();
+      if ( this.successTipModalRef ) {
+        this.successTipModalRef.close();
+      }
     }
   }
 
+  public spinnerModalRef = null;
+
   @Input()
   set isLoading(isShow: boolean) {
-    let dialogRef = null;
-
     if ( isShow ) {
-      dialogRef = this.dialog.open(SpinnerModal);
+      this.spinnerModalRef = this.dialog.open(SpinnerModal);
     } else {
-      dialogRef.close();
+      if ( this.spinnerModalRef ) {
+        this.spinnerModalRef.close();
+      }
     }
   }
 }

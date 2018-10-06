@@ -8,7 +8,7 @@ import * as fromCore from '../reducers';
 @Component({
   selector: 'app-tip-page',
   template: `
-    <app-modal
+    <app-tip-modal
       [isLoading] = "isLoading$ | async"
       [showSuccessTip] = "showSuccessTip$ | async"
       [successMsg] = "successMsg$ | async"
@@ -17,7 +17,7 @@ import * as fromCore from '../reducers';
       [errorMsg] = "errorMsg$ | async"
       (hideErrorTipSubmitted)="hideErrorTip()"
     >
-    </app-modal>
+    </app-tip-modal>
   `,
   styles: []
 })

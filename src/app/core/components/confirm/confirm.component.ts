@@ -1,4 +1,5 @@
 import { Component, ViewChild, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { MatDialog, MatDialogRef } from '@angular/material';
 
 import { Action } from '@ngrx/store';
 
@@ -7,11 +8,10 @@ import { Action } from '@ngrx/store';
   templateUrl: './confirm.component.html',
   styleUrls: ['./confirm.component.scss']
 })
-
 export class ConfirmComponent implements OnInit {
-  @ViewChild('confirmModal') public confirmModal: any;
-  
-  constructor() {};
+  constructor(
+    public dialog: MatDialog
+  ) {}
 
   ngOnInit(): void {};
 
@@ -19,12 +19,16 @@ export class ConfirmComponent implements OnInit {
   
   @Input() confirmAction: Action;
 
+  public confirmModalRef = null;
+
   @Input()
   set showConfirm(isShow: boolean) {
     if( isShow ) {
-      this.confirmModal.show();
+      this.confirmModalRef = this.dialog.open(ConfirmModal);
     } else {
-      this.confirmModal.hide();
+      if ( this.confirmModalRef ) {
+        this.confirmModalRef.close();
+      }
     }
   }
 
@@ -38,3 +42,9 @@ export class ConfirmComponent implements OnInit {
     this.closeSubmitted.emit()
   }
 }
+
+@Component({
+  selector: 'confirm-modal',
+  templateUrl: 'confirm-modal.component.html',
+})
+export class ConfirmModal {}
