@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Actions, Effect, ofType } from '@ngrx/effects';
 import { Store, select } from '@ngrx/store';
-import { of, pipe, timer } from 'rxjs';
-import { catchError, map } from 'rxjs/operators';
+import { of, pipe } from 'rxjs';
+import { catchError, map, delay, switchMap } from 'rxjs/operators';
 
 import * as fromExample from '../reducers';
 
@@ -19,8 +19,9 @@ export class ExampleEffects {
   @Effect()
   task$ = this.actions$.pipe(
     ofType<NormalTask>(ExampleActionTypes.NormalTask),
-    map( () => timer(2000) ),
-    map( () => new NormalTaskSuccess() ),
+    switchMap( (item) => of('dummy').pipe(
+      delay(2000),
+      map( () => new NormalTaskSuccess() )) ),
     catchError(error => of(new NormalTaskFailure(error.message)))
   );
 

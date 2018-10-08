@@ -17,7 +17,11 @@ export class SpinnerModal implements OnInit {
 
   @Input()
   set isLoading(isShow: boolean) {
+    console.log(isShow);
+
     if ( isShow ) {
+      console.log('here');
+
       this.spinnerModalRef = this.dialog.open(SpinnerModal);
     } else {
       if ( this.spinnerModalRef ) {
