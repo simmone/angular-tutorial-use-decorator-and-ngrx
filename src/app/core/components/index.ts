@@ -2,7 +2,11 @@ import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { MatButtonModule, MatDialogModule } from '@angular/material';
+import { 
+  MatButtonModule, 
+  MatDialogModule, 
+  MatProgressSpinnerModule
+} from '@angular/material';
 
 import { SuccessTipModal } from './successTip/success-tip.component';
 import { ErrorTipModal } from './errorTip/error-tip.component';
@@ -21,7 +25,8 @@ export const COMPONENTS = [
     CommonModule,
     BrowserAnimationsModule,
     MatButtonModule,
-    MatDialogModule
+    MatDialogModule,
+    MatProgressSpinnerModule
   ],
   declarations: COMPONENTS,
   exports: COMPONENTS,
