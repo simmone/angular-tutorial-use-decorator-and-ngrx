@@ -49,4 +49,4 @@ export function reducer(state = initialState, action: any): State {
   }
 }
 
-export const isLoadingSpinnerActive = (state: State) => state.active;
+export const isActive = (state: State) => state.active;

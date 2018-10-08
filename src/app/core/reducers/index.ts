@@ -52,9 +52,9 @@ export const getSpinnerState = createSelector(
   (state: ShareState) => state.spinner
 );
 
-export const isLoadingSpinnerActive = createSelector(
+export const isActive = createSelector(
   getSpinnerState,
-  fromSpinner.isLoadingSpinnerActive
+  fromSpinner.isActive
 );
 
 export const getTipState = createSelector(

@@ -20,7 +20,7 @@ export class SuccessTipModal implements OnInit {
   @Input()
   set showSuccessTip(isShow: boolean) {
     if ( isShow ) {
-      this.successTipModalRef = this.dialog.open(SuccessTipModal);
+      setTimeout(() => this.successTipModalRef = this.dialog.open(SuccessTipModal));
 
       setTimeout( () => {
         this.hideSuccessTipSubmitted.emit();

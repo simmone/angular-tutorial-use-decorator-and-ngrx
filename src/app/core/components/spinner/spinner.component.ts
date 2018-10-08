@@ -1,4 +1,4 @@
-import { Component, ViewChild, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material';
 
 @Component({
@@ -7,9 +7,7 @@ import { MatDialog, MatDialogRef } from '@angular/material';
   styleUrls: ['./spinner.component.scss']
 })
 export class SpinnerModal implements OnInit {
-  constructor(
-    public dialog: MatDialog,
-  ) {}
+  constructor(public dialog: MatDialog) {}
 
   ngOnInit(): void {};
 
@@ -20,9 +18,7 @@ export class SpinnerModal implements OnInit {
     console.log(isShow);
 
     if ( isShow ) {
-      console.log('here');
-
-      this.spinnerModalRef = this.dialog.open(SpinnerModal);
+      setTimeout(() => this.spinnerModalRef = this.dialog.open(SpinnerModal));
     } else {
       if ( this.spinnerModalRef ) {
         this.spinnerModalRef.close();
@@ -30,4 +26,6 @@ export class SpinnerModal implements OnInit {
     }
   }
 }
+
+
 

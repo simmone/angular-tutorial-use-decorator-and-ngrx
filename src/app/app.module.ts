@@ -9,7 +9,12 @@ import {
 
 import { MatButtonModule } from '@angular/material';
 
-import { MainComponent } from './main/main.component';
+import { MainComponent } from './core/containers/main/main.component';
+
+import { SpinnerModal } from './core/components/spinner/spinner.component';
+import { SuccessTipModal } from './core/components/successTip/success-tip.component';
+import { ErrorTipModal } from './core/components/errorTip/error-tip.component';
+import { ConfirmModal } from './core/components/confirm/confirm.component';
 
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
@@ -25,9 +30,15 @@ import { environment } from '../environments/environment';
 
 import { CoreModule } from './core/core.module';
 
+export const GLOBAL_COMPONENTS = [
+  SuccessTipModal,
+  ErrorTipModal,
+  SpinnerModal,
+  ConfirmModal
+];
+
 @NgModule({
   declarations: [
-    MainComponent
   ],
   imports: [
     BrowserModule,
@@ -48,6 +59,7 @@ import { CoreModule } from './core/core.module';
   providers: [
     { provide: RouterStateSerializer, useClass: CustomRouterStateSerializer }
   ],
+  entryComponents: GLOBAL_COMPONENTS,
   bootstrap: [MainComponent],
   schemas: [NO_ERRORS_SCHEMA]
 })
