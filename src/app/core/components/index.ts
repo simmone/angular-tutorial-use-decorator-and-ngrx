@@ -9,15 +9,23 @@ import {
 } from '@angular/material';
 
 import { SuccessTipModal } from './successTip/success-tip.component';
-import { ErrorTipModal } from './errorTip/error-tip.component';
+import { SuccessTipModalShell } from './successTip/success-tip-shell.component';
 import { SpinnerModal } from './spinner/spinner.component';
+import { SpinnerModalShell } from './spinner/spinner-shell.component';
+import { ErrorTipModal } from './errorTip/error-tip.component';
+import { ErrorTipModalShell } from './errorTip/error-tip-shell.component';
 import { ConfirmModal } from './confirm/confirm.component';
+import { ConfirmModalShell } from './confirm/confirm-shell.component';
 
 export const COMPONENTS = [
   SuccessTipModal,
+  SuccessTipModalShell,
   ErrorTipModal,
+  ErrorTipModalShell,
   SpinnerModal,
-  ConfirmModal
+  SpinnerModalShell,
+  ConfirmModal,
+  ConfirmModalShell
 ];
 
 @NgModule({

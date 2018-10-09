@@ -11,14 +11,14 @@ import * as fromTip from '../reducers';
 @Component({
   selector: 'app-confirm-page',
   template: `
-    <app-confirm-modal
+    <app-confirm-modal-shell
       [confirmQuestion] = "confirmQuestion$ | async"
       [confirmAction] = "confirmAction$ | async"
       [showConfirm] = "showConfirm$ | async"
       (confirmSubmitted) = "confirm($event)"
       (closeSubmitted) = "close()"
     >
-    </app-confirm-modal>
+    </app-confirm-modal-shell>
   `,
   styles: []
 })

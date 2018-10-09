@@ -8,12 +8,12 @@ import * as fromCore from '../reducers';
 @Component({
   selector: 'app-error-tip-page',
   template: `
-    <app-error-tip-modal
+    <app-error-tip-modal-shell
       [showErrorTip] = "showErrorTip$ | async"
       [errorMsg] = "errorMsg$ | async"
       (hideErrorTipSubmitted)="hideErrorTip()"
     >
-    </app-error-tip-modal>
+    </app-error-tip-modal-shell>
   `,
   styles: []
 })

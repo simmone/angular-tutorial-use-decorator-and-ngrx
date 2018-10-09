@@ -9,10 +9,10 @@ import { tap } from 'rxjs/operators';
 @Component({
   selector: 'app-spinner-page',
   template: `
-    <app-spinner-modal
+    <app-spinner-modal-shell
       [isLoading] = "isLoading$ | async"
     >
-    </app-spinner-modal>
+    </app-spinner-modal-shell>
   `,
   styles: []
 })

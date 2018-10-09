@@ -8,12 +8,12 @@ import * as fromCore from '../reducers';
 @Component({
   selector: 'app-success-tip-page',
   template: `
-    <app-success-tip-modal
+    <app-success-tip-modal-shell
       [showSuccessTip] = "showSuccessTip$ | async"
       [successMsg] = "successMsg$ | async"
       (hideSuccessTipSubmitted)="hideSuccessTip()"
     >
-    </app-success-tip-modal>
+    </app-success-tip-modal-shell>
   `,
   styles: []
 })

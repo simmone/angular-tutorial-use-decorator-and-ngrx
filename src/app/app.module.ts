@@ -52,7 +52,7 @@ export const GLOBAL_COMPONENTS = [
       name: 'Angular Tutorial DevTools',
       logOnly: environment.production,
     }),
-    MatButtonModule, 
+    MatButtonModule,
     EffectsModule.forRoot([]),
     CoreModule.forRoot()
   ],
