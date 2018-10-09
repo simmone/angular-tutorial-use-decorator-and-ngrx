@@ -1,5 +1,5 @@
 import { Component, ViewChild, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { MatDialog, MatDialogRef } from '@angular/material';
+import { MatBottomSheet, MatBottomSheetRef } from '@angular/material';
 
 import { SuccessTipModal } from './success-tip.component';
 
@@ -8,7 +8,7 @@ import { SuccessTipModal } from './success-tip.component';
   templateUrl: './success-tip-shell.component.html',
 })
 export class SuccessTipModalShell implements OnInit {
-  constructor(public dialog: MatDialog) {}
+  constructor(public dialog: MatBottomSheet) {}
 
   ngOnInit(): void {};
 
@@ -21,14 +21,20 @@ export class SuccessTipModalShell implements OnInit {
   @Input()
   set showSuccessTip(isShow: boolean) {
     if ( isShow ) {
-      setTimeout(() => this.successTipModalRef = this.dialog.open(SuccessTipModal));
+      setTimeout( () => 
+                  this.successTipModalRef = this.dialog.open(
+                    SuccessTipModal,
+                    {
+                      data: { msg: this.successMsg },
+                    }
+                  ));
 
       setTimeout( () => {
         this.hideSuccessTipSubmitted.emit();
       }, 2000);
     } else {
       if ( this.successTipModalRef ) {
-        this.successTipModalRef.close();
+        this.successTipModalRef.dismiss();
       }
     }
   }

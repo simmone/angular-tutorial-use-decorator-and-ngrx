@@ -1,5 +1,5 @@
 import { Component, ViewChild, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { MatDialog, MatDialogRef } from '@angular/material';
+import { MatBottomSheet, MatBottomSheetRef } from '@angular/material';
 
 import { ErrorTipModal } from './error-tip.component';
 
@@ -8,7 +8,7 @@ import { ErrorTipModal } from './error-tip.component';
   templateUrl: './error-tip-shell.component.html'
 })
 export class ErrorTipModalShell implements OnInit {
-  constructor(public dialog: MatDialog) {}
+  constructor(public bottomSheet: MatBottomSheet) {}
 
   ngOnInit(): void {};
 
@@ -21,14 +21,20 @@ export class ErrorTipModalShell implements OnInit {
   @Input()
   set showErrorTip(isShow: boolean) {
     if ( isShow ) {
-      this.errorTipModalRef = this.dialog.open(ErrorTipModal);
+      setTimeout( () => 
+                  this.errorTipModalRef = this.bottomSheet.open(
+                    ErrorTipModal,
+                    {
+                      data: { msg: this.errorMsg },
+                    }
+                  ));
 
       setTimeout( () => {
         this.hideErrorTipSubmitted.emit();
       }, 2000);
     } else {
       if ( this.errorTipModalRef ) {
-        this.errorTipModalRef.close();
+        this.errorTipModalRef.dismiss();
       }
     }
   }

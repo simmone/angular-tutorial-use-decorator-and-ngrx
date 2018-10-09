@@ -1,4 +1,6 @@
-import { Component, ViewChild, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
+
+import {MAT_BOTTOM_SHEET_DATA} from '@angular/material';
 
 @Component({
   selector: 'app-error-tip-modal',
@@ -6,7 +8,7 @@ import { Component, ViewChild, OnInit, Input, Output, EventEmitter } from '@angu
   styleUrls: ['./error-tip.component.scss']
 })
 export class ErrorTipModal implements OnInit {
-  constructor() {}
+  constructor(@Inject(MAT_BOTTOM_SHEET_DATA) public data: any) { }
 
   ngOnInit(): void {};
 }

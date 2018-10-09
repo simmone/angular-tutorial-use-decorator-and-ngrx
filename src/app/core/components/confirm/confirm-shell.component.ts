@@ -25,11 +25,20 @@ export class ConfirmModalShell implements OnInit {
   @Input()
   set showConfirm(isShow: boolean) {
     if( isShow ) {
-      this.confirmModalRef = this.dialog.open(ConfirmModal);
-    } else {
-      if ( this.confirmModalRef ) {
-        this.confirmModalRef.close();
-      }
+      setTimeout( () => 
+                  this.confirmModalRef = this.dialog.open(
+                    ConfirmModal,
+                    {
+                      data: { question: this.confirmQuestion, action: this.confirmAction },
+                    }
+                  ).afterClosed()
+                  .subscribe(response => {
+                    this.closeWindow();
+                    
+                    if ( response && response.result === 'yes' ) {
+                      this.submit();
+                    }
+                  }));
     }
   }
 
@@ -39,7 +48,7 @@ export class ConfirmModalShell implements OnInit {
   }
 
   @Output() closeSubmitted = new EventEmitter();
-  close() {
+  closeWindow() {
     this.closeSubmitted.emit()
   }
 }

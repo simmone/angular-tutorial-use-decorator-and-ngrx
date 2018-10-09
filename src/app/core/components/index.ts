@@ -5,6 +5,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { 
   MatButtonModule, 
   MatDialogModule, 
+  MatBottomSheetModule,
   MatProgressSpinnerModule
 } from '@angular/material';
 
@@ -34,7 +35,8 @@ export const COMPONENTS = [
     BrowserAnimationsModule,
     MatButtonModule,
     MatDialogModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatBottomSheetModule,
   ],
   declarations: COMPONENTS,
   exports: COMPONENTS,

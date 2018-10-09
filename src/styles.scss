@@ -6,3 +6,18 @@
     background: rgba(0, 0, 0, 0.0);
     overflow-y: hidden !important;
 }
+
+.success {
+    box-shadow: none;
+    background: rgba(0, 0, 0, 0.0);
+    color: green;
+    text-align: center;
+}
+
+.error {
+    box-shadow: none;
+    background: rgba(0, 0, 0, 0.0);
+    color: red;
+    text-align: center;
+}
+

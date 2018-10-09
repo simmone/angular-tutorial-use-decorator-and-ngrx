@@ -34,7 +34,7 @@ export class ConfirmPageComponent implements OnInit {
   confirm($event: string) {
     this.store.dispatch(new ConfirmActions.SubmitConfirm($event));
   }
-  
+
   close() {
     this.store.dispatch(new ConfirmActions.HideConfirm());
   }

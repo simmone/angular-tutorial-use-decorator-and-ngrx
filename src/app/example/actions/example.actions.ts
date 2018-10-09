@@ -26,7 +26,7 @@ export class NormalTask implements Action {
 }
 
 @HideSpinner(ExampleActionTypes.NormalTask)
-@SuccessTip('Yeah!')
+@SuccessTip('Normal Task Complete Successfully!')
 export class NormalTaskSuccess implements Action {
   readonly type = ExampleActionTypes.NormalTaskSuccess;
 }
@@ -63,7 +63,7 @@ export class ConfirmTask implements Action {
 }
 
 @HideSpinner(ConfirmActionTypes.SubmitConfirm)
-@SuccessTip('Done!')
+@SuccessTip('Confirm Task Complete Successfully!')
 export class ConfirmTaskSuccess implements Action {
   readonly type = ExampleActionTypes.ConfirmTaskSuccess;
 }

@@ -1,4 +1,7 @@
-import { Component, ViewChild, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
+
+import {MAT_BOTTOM_SHEET_DATA} from '@angular/material';
+
 
 @Component({
   selector: 'app-success-tip-modal',
@@ -6,7 +9,7 @@ import { Component, ViewChild, OnInit, Input, Output, EventEmitter } from '@angu
   styleUrls: ['./success-tip.component.scss']
 })
 export class SuccessTipModal implements OnInit {
-  constructor() {}
+  constructor(@Inject(MAT_BOTTOM_SHEET_DATA) public data: any) { }
 
   ngOnInit(): void {};
 }

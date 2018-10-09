@@ -1,5 +1,8 @@
-<mat-dialog-content>
-  <mat-spinner></mat-spinner>
-</mat-dialog-content>
+<h3 class="error">{{data.question}}</h3>
+
+<div class="button-row">
+  <button mat-button color="warn" (click)="submit()">Yes</button>
+  <button mat-button color="primary" (click)="close()">No</button>
+</div>
 
 
