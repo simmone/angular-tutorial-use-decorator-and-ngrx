@@ -2,9 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 import { Store, select } from '@ngrx/store';
 
+import * as SpinnerActions from '../actions/spinner.actions';
 import * as fromCore from '../reducers';
-
-import { tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-spinner-page',

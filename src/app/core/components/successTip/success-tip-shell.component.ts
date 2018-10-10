@@ -8,7 +8,7 @@ import { SuccessTipModal } from './success-tip.component';
   templateUrl: './success-tip-shell.component.html',
 })
 export class SuccessTipModalShell implements OnInit {
-  constructor(public dialog: MatBottomSheet) {}
+  constructor(private dialog: MatBottomSheet) {}
 
   ngOnInit(): void {};
 
@@ -16,12 +16,12 @@ export class SuccessTipModalShell implements OnInit {
 
   @Output() hideSuccessTipSubmitted = new EventEmitter();
 
-  public successTipModalRef = null;
+  private successTipModalRef = null;
 
   @Input()
   set showSuccessTip(isShow: boolean) {
     if ( isShow ) {
-      setTimeout( () => 
+      setTimeout( () =>
                   this.successTipModalRef = this.dialog.open(
                     SuccessTipModal,
                     {

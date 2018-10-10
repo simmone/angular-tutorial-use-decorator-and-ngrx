@@ -11,21 +11,21 @@ import { ConfirmModal } from './confirm.component';
 })
 export class ConfirmModalShell implements OnInit {
   constructor(
-    public dialog: MatDialog
+    private dialog: MatDialog
   ) {}
 
   ngOnInit(): void {};
 
   @Input() confirmQuestion: string;
-  
+
   @Input() confirmAction: Action;
 
-  public confirmModalRef = null;
+  private confirmModalRef = null;
 
   @Input()
   set showConfirm(isShow: boolean) {
     if( isShow ) {
-      setTimeout( () => 
+      setTimeout( () =>
                   this.confirmModalRef = this.dialog.open(
                     ConfirmModal,
                     {
@@ -34,7 +34,7 @@ export class ConfirmModalShell implements OnInit {
                   ).afterClosed()
                   .subscribe(response => {
                     this.closeWindow();
-                    
+
                     if ( response && response.result === 'yes' ) {
                       this.submit();
                     }

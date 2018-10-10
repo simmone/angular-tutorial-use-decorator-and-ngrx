@@ -5,14 +5,16 @@ import {
  } from '@ngrx/store';
 
 import * as fromRoot from '../../reducers';
-import * as fromTip from './tip.reducer';
+import * as fromSuccessTip from './success-tip.reducer';
+import * as fromErrorTip from './error-tip.reducer';
 import * as fromConfirm from './confirm.reducer';
 import * as fromSpinner from './spinner.reducer';
 
 export interface ShareState {
   confirm: fromConfirm.State;
   spinner: fromSpinner.State;
-  tip: fromTip.State;
+  successTip: fromSuccessTip.State;
+  errorTip: fromErrorTip.State;
 }
 
 export interface State extends fromRoot.State {
@@ -22,7 +24,8 @@ export interface State extends fromRoot.State {
 export const reducers: ActionReducerMap<ShareState> = {
   confirm: fromConfirm.reducer,
   spinner: fromSpinner.reducer,
-  tip: fromTip.reducer
+  successTip: fromSuccessTip.reducer,
+  errorTip: fromErrorTip.reducer,
 };
 
 export const getShareState = createFeatureSelector<ShareState>('share');
@@ -57,29 +60,32 @@ export const isActive = createSelector(
   fromSpinner.isActive
 );
 
-export const getTipState = createSelector(
+export const getSuccessTipState = createSelector(
   getShareState,
-  (state: ShareState) => state.tip
-);
-
-export const showErrorTip = createSelector(
-  getTipState,
-  fromTip.showErrorTip
-);
-
-export const errorMsg = createSelector(
-  getTipState,
-  fromTip.errorMsg
+  (state: ShareState) => state.successTip
 );
 
 export const showSuccessTip = createSelector(
-  getTipState,
-  fromTip.showSuccessTip
+  getSuccessTipState,
+  fromSuccessTip.showSuccessTip
 );
 
 export const successMsg = createSelector(
-  getTipState,
-  fromTip.successMsg
+  getSuccessTipState,
+  fromSuccessTip.successMsg
 );
 
+export const getErrorTipState = createSelector(
+  getShareState,
+  (state: ShareState) => state.errorTip
+);
 
+export const showErrorTip = createSelector(
+  getErrorTipState,
+  fromErrorTip.showErrorTip
+);
+
+export const errorMsg = createSelector(
+  getErrorTipState,
+  fromErrorTip.errorMsg
+);

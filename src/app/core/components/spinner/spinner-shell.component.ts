@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material';
 
 import { SpinnerModal } from './spinner.component';
@@ -9,22 +9,22 @@ import { SpinnerModal } from './spinner.component';
 })
 export class SpinnerModalShell implements OnInit {
   constructor(
-    public dialog: MatDialog, 
+    private dialog: MatDialog,
   ) {}
 
   ngOnInit(): void {};
 
-  public spinnerModalRef = null;
+  private spinnerModalRef = null;
 
   @Input()
   set isLoading(isShow: boolean) {
     if ( isShow ) {
-      setTimeout( () => this.spinnerModalRef = 
-                    this.dialog.open(
-                      SpinnerModal, 
-                      {
+      setTimeout( () => 
+                  this.spinnerModalRef = this.dialog.open(
+                    SpinnerModal,
+                    {
                         panelClass: 'transparent',
-                      }));
+                    }))
     } else {
       if ( this.spinnerModalRef ) {
         this.spinnerModalRef.close();

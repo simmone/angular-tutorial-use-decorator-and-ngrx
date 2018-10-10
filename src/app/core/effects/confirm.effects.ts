@@ -10,10 +10,10 @@ export class ConfirmEffects {
 
   @Effect()
   showConfirm$ = this.actions$.pipe(
-    filter((action: any) => 
-           action && 
-           action.confirmQuestion ? action : false && 
-           action.confirmAction ? action : false && 
+    filter((action: any) =>
+           action &&
+           action.confirmQuestion ? action : false &&
+           action.confirmAction ? action : false &&
            !(action.yesno ? action : false)),
     map( (action: any) => new ShowConfirm(action.confirmQuestion, action.confirmAction) )
   );

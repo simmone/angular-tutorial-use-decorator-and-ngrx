@@ -2,11 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 import { Action, Store, select } from '@ngrx/store';
 
-import { Observable } from 'rxjs';
-import { tap, take, switchMap, map } from 'rxjs/operators';
-
 import * as ConfirmActions from '../actions/confirm.actions';
-import * as fromTip from '../reducers';
+import * as fromCore from '../reducers';
 
 @Component({
   selector: 'app-confirm-page',
@@ -23,14 +20,14 @@ import * as fromTip from '../reducers';
   styles: []
 })
 export class ConfirmPageComponent implements OnInit {
-  confirmQuestion$ = this.store.pipe(select(fromTip.getConfirmQuestion));
-  showConfirm$ = this.store.pipe(select(fromTip.getShowConfirm));
-  confirmAction$ = this.store.pipe(select(fromTip.getConfirmAction));
+  confirmQuestion$ = this.store.pipe(select(fromCore.getConfirmQuestion));
+  showConfirm$ = this.store.pipe(select(fromCore.getShowConfirm));
+  confirmAction$ = this.store.pipe(select(fromCore.getConfirmAction));
 
-  constructor(private store: Store<fromTip.State>) {};
+  constructor(private store: Store<fromCore.State>) {};
 
   ngOnInit() {};
-  
+
   confirm($event: string) {
     this.store.dispatch(new ConfirmActions.SubmitConfirm($event));
   }

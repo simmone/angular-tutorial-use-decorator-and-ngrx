@@ -13,7 +13,8 @@ import { SpinnerPageComponent } from './containers/spinner-page.component';
 import { ConfirmPageComponent } from './containers/confirm-page.component';
 import { PageNotFoundComponent } from './containers/page-not-found/page-not-found.component';
 
-import { TipEffects } from './effects/tip.effects';
+import { SuccessTipEffects } from './effects/success-tip.effects';
+import { ErrorTipEffects } from './effects/error-tip.effects';
 import { ConfirmEffects } from './effects/confirm.effects';
 import { SpinnerEffects } from './effects/spinner.effects';
 
@@ -33,11 +34,11 @@ export const COMPONENTS = [
 
 @NgModule({
   imports: [
-    CommonModule, 
+    CommonModule,
     RouterModule,
     ComponentsModule,
     StoreModule.forFeature('share', reducers),
-    EffectsModule.forFeature([TipEffects, ConfirmEffects, SpinnerEffects]),
+    EffectsModule.forFeature([SuccessTipEffects, ErrorTipEffects, ConfirmEffects, SpinnerEffects]),
   ],
   declarations: COMPONENTS,
   exports: COMPONENTS,

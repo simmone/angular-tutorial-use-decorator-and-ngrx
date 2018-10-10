@@ -21,7 +21,7 @@ export const COMPONENTS = [
 
 @NgModule({
   imports: [
-    CommonModule, 
+    CommonModule,
     MatButtonModule,
     ComponentsModule,
     RouterModule.forChild([

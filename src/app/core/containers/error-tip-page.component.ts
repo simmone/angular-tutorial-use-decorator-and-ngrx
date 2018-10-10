@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { Store, select } from '@ngrx/store';
 
-import * as TipActions from '../actions/tip.actions';
+import * as ErrorTipActions from '../actions/error-tip.actions';
 import * as fromCore from '../reducers';
 
 @Component({
@@ -26,6 +26,6 @@ export class ErrorTipPageComponent implements OnInit {
   ngOnInit() {};
 
   hideErrorTip() {
-    this.store.dispatch(new TipActions.HideErrorTip());
+    this.store.dispatch(new ErrorTipActions.HideErrorTip());
   }
 }

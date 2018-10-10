@@ -22,7 +22,7 @@ export function reducer(state = initialState, action: any): State {
         confirmAction: action.action
       };
     }
-    case ConfirmActionTypes.HideConfirm: 
+    case ConfirmActionTypes.HideConfirm:
     case ConfirmActionTypes.SubmitConfirm:
     {
       return {

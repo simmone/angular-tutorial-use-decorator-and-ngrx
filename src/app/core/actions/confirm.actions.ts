@@ -1,6 +1,6 @@
 import { Action } from '@ngrx/store';
 
-import { ShowSpinner, HideSpinner, ErrorTip, SuccessTip, NeedConfirm } from '../../shared/decorators';
+import { ShowSpinner } from '../decorators';
 
 export enum ConfirmActionTypes {
   ShowConfirm = '[Confirm] ShowConfirm',

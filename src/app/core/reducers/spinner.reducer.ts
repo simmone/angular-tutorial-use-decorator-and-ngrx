@@ -36,7 +36,7 @@ export function reducer(state = initialState, action: any): State {
           action.payload.triggerAction?
           state.actionsInProgress.filter((currentAction: any) => currentAction !== action.payload.triggerAction) :
           state.actionsInProgress;
-
+    
     return {
         ...state,
       actionsInProgress: newActionsInProgress,

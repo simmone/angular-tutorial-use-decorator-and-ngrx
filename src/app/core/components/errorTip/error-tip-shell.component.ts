@@ -8,20 +8,20 @@ import { ErrorTipModal } from './error-tip.component';
   templateUrl: './error-tip-shell.component.html'
 })
 export class ErrorTipModalShell implements OnInit {
-  constructor(public bottomSheet: MatBottomSheet) {}
+  constructor(private bottomSheet: MatBottomSheet) {}
 
   ngOnInit(): void {};
 
   @Input() errorMsg: string;
 
   @Output() hideErrorTipSubmitted = new EventEmitter();
-  
-  public errorTipModalRef = null;
+
+  private errorTipModalRef = null;
 
   @Input()
   set showErrorTip(isShow: boolean) {
     if ( isShow ) {
-      setTimeout( () => 
+      setTimeout( () =>
                   this.errorTipModalRef = this.bottomSheet.open(
                     ErrorTipModal,
                     {

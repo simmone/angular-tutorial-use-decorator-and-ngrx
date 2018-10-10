@@ -2,9 +2,9 @@ import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { 
-  MatButtonModule, 
-  MatDialogModule, 
+import {
+  MatButtonModule,
+  MatDialogModule,
   MatBottomSheetModule,
   MatProgressSpinnerModule
 } from '@angular/material';

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { Store, select } from '@ngrx/store';
 
-import * as TipActions from '../actions/tip.actions';
+import * as SuccessTipActions from '../actions/success-tip.actions';
 import * as fromCore from '../reducers';
 
 @Component({
@@ -26,6 +26,6 @@ export class SuccessTipPageComponent implements OnInit {
   ngOnInit() {};
 
   hideSuccessTip() {
-    this.store.dispatch(new TipActions.HideSuccessTip());
+    this.store.dispatch(new SuccessTipActions.HideSuccessTip());
   }
 }

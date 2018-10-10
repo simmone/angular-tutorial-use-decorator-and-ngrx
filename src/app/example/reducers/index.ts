@@ -9,7 +9,7 @@ import * as fromRoot from '../../reducers';
 import * as fromExample from './example.reducer';
 
 export interface ExampleState {
-  es: fromExample.State;
+  dummy: fromExample.State;
 };
 
 export interface State extends fromRoot.State {
@@ -17,14 +17,14 @@ export interface State extends fromRoot.State {
 };
 
 export const reducers: ActionReducerMap<ExampleState> = {
-  es: fromExample.reducer
+  dummy: fromExample.reducer
 };
 
 export const getExampleState = createFeatureSelector<ExampleState>('example');
 
 export const getEsState = createSelector(
   getExampleState,
-  (state: ExampleState) => state.es
+  (state: ExampleState) => state.dummy
 );
 
 export const getResult = createSelector(
