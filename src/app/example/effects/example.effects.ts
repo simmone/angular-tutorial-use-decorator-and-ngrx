@@ -32,8 +32,9 @@ export class ExampleEffects {
     ofType<NormalTask>(ExampleActionTypes.NormalTask),
     switchMap( (item) => of('dummy').pipe(
       delay(2000),
-      map( () => new NormalTaskSuccess() )) ),
-    catchError(error => of(new NormalTaskFailure(error.message)))
+      map( () => new NormalTaskSuccess() ),
+      catchError(error => of(new NormalTaskFailure(error.message)))
+    ))
   );
 
   @Effect()
@@ -42,8 +43,9 @@ export class ExampleEffects {
     switchMap( (item) => of('dummy').pipe(
       delay(2000),
       tap( () => { throw Error('something broken!') } ),
-      map( () => new ErrorTaskSuccess() )) ),
-    catchError(error => of(new ErrorTaskFailure(error.message)))
+      map( () => new ErrorTaskSuccess() ),
+      catchError(error => of(new ErrorTaskFailure(error.message)))
+    ))
   );
 
   @Effect()
@@ -52,8 +54,9 @@ export class ExampleEffects {
     filter( (action: any) => action.payload === 'ConfirmTask' ),
     switchMap( (item) => of('dummy').pipe(
       delay(2000),
-      map( () => new ConfirmTaskSuccess() )) ),
-    catchError(error => of(new ConfirmTaskFailure(error.message)))
+      map( () => new ConfirmTaskSuccess() ),
+      catchError(error => of(new ConfirmTaskFailure(error.message)))
+    ))
   );
 
   constructor(
